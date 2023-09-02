@@ -1,0 +1,12 @@
+.array{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    width: 640px;
+    height: 20px;
+}
+
+.array > div{
+    border: 1px solid blue;
+    width: 80px;
+}
