@@ -1,8 +1,8 @@
 .array{
-    border: 1px solid black;
+    border: 0px solid black;
     display: flex;
     flex-direction: row;
-    width: 640px;
+    width: auto;
     height: 20px;
 }
 

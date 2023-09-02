@@ -1,11 +1,6 @@
 let id = 0;
-const a = document.getElementById("sort");
 const arr = [];
-for(let i =0;i<8;i++){
-    const value  = document.getElementById(i);
-    arr.push(parseInt(value.innerHTML));
-}
-console.log(arr);
+
 function bubbleSort(){
     for(let i = 0;i<arr.length;i++){
         for(let k = i+1;k<arr.length;k++ ){
@@ -25,16 +20,28 @@ function bubbleSort(){
 }
 
 function add(){
-       let i = document.getElementById("inputvalue");
+       const i = document.getElementById("inputvalue");
        if(i.value){
-
+          const j = document.getElementById("list");
+          const t = document.createElement("div");
+          t.className = "array"
+          t.id = id;
+          t.innerHTML = i.value;
+          j.append(t);
+          arr.push(parseInt(t.innerHTML));
+          i.value = 0;
+          id++;
+          console.log(arr);
        }else{
-        alert("Please enter a value and the click on plus sign");
+        alert("Please enter a value and then click on plus sign");
        }
 }
 
 function subtract(){
-
+    id--;
+    const j = document.getElementById("list");
+    j.removeChild(document.getElementById(id));
+    arr.pop();
 }
 
 
