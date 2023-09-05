@@ -88,6 +88,115 @@ timeElapsed = endTime - startTime;
 console.log("sieve",timeElapsed);
 
 
+// Online Javascript Editor for free
+// Write, Edit and Run your Javascript code using JS Online Compiler
+function createCounter(init, delta){
+    return function count(){
+        init = init +delta;
+        return init;
+    }
+}
+
+let c1 = createCounter(5,5);
+let c2 = createCounter(4,4);
+
+console.log(c1());
+console.log(c2());
+console.log(c1());
+console.log(c2());
+
+const arr = [1,1,2,3,4,5,6,7,8,8,6,6,7,7,7,10,10];
+
+function removeDuplicate(arr){
+    let dic = {};
+    
+    for(let i =0;i<arr.length;i++){
+        if(dic[arr[i]] === undefined){
+            dic[arr[i]] = [1,arr[i]];
+        }else{
+            dic[arr[i]] = [-1,arr[i]];
+        }
+    }
+    let noDuplicate = [];
+    for(keys in dic){
+        if(dic[keys][0] === -1){
+            noDuplicate.push(dic[keys][1]);
+        }
+    }
+    
+    return noDuplicate;
+}
+
+console.log(removeDuplicate(arr));
+
+
+const arr1 = [4, 1, 9, 10, 15, 22, 5, 14,7];
+//ans - [1,9,15,5]
+function removeEvenIntegers(arr1){
+    let noEvenInt = [];
+    
+    for(let i = 0;i<arr1.length;i++){
+        if(arr1[i]%2 !== 0){
+            noEvenInt.push(arr1[i]);
+        }
+    }
+    return noEvenInt;
+}
+
+console.log(removeEvenIntegers(arr1));
+
+let x = {};
+let y = {name:"abhi"};
+let z = {name:"arun"};
+x[y] = {name:"p"};
+x[z] = {name:"z"};
+console.log(x[z]);
+
+
+console.log(0===false)
+
+//works for array and object
+function callByRefrence(obj){
+    obj.name = "arun";
+
+}
+
+const varObj = {name:"abhi"};
+
+console.log("Before Pass by refrence");
+console.log(varObj);
+callByRefrence(varObj);
+console.log("After Call by reference");
+console.log(varObj);
+
+function callByValue(x){
+    x = x * x;
+    
+    return x;
+
+}
+
+const t = 10;
+
+console.log("Before Pass by refrence");
+console.log(t);
+
+console.log("After Call by reference");
+console.log(callByValue(t));
+
+
+function arrCallByRef(l){
+      l[5] = 9;
+}
+
+const arr5 = [1,2,3,4,5];
+
+console.log("Array by reference");
+console.log(arr5);
+arrCallByRef(arr5);
+console.log("After Array by reference");
+console.log(arr5);
+
 
 
 
