@@ -198,6 +198,37 @@ console.log("After Array by reference");
 console.log(arr5);
 
 
+function deepAndShallowCopy(){
+let arr6 = [9,4,5,[7,9]];
+let arr7 = [...arr6];
+arr7[0] = -1;
+console.log(arr6);
+console.log(arr7);
+//shallow copy
+let obj1 = {a:"v"};
+let obj2 = {...obj1};
+obj2.a = "t";
+console.log(obj1);
+console.log(obj2);
+//deep copy
+obj1 = {a:{d:"g"}};
+obj2 = JSON.parse(JSON.stringify(obj1));
+console.log(obj1);
+console.log(obj2);
+obj2.a = {r:"t"};
+console.log(obj1);
+console.log(obj2);
+}
+deepAndShallowCopy();
+
+
+let a = "str";
+let b = "s"
+
+
+
+
+
 
 
 
