@@ -12,6 +12,8 @@ function towerOfHanoi(from,to,aux,n){
 
 //towerOfHanoi("A","C","B",3);
 
+
+//clousers practice
 function createCounter(init, delta){
     return function count(){
         init = init + delta;
@@ -78,4 +80,20 @@ function getPrivateCounter() {
   console.log(cache(10)); // Should log "Computing 10" and return 20
   console.log(cache(10)); // Should return 20 (cached result)
   
+
+  function reverseString(str){
+         let a = str.split("");
+         a = a.reverse().join("");
+         return a;
+  }
+
+  console.log("Reversed String is:",reverseString("abhji"))
   
+  function isPalindrom(str){
+     return str === reverseString(str);
+  }
+  console.log("Is String Palindrom:",isPalindrom("abhji"));
+
+  function longestPalindrom(s){
+      
+  }
