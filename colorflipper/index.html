@@ -3,9 +3,18 @@
     <title>Color Flipper</title>
     <link rel="stylesheet" href="./index.css"></link>
    </head>
-   <body>
+   <body id="body">
     <script src="./index.js"></script>
-      <div id="header"><div id="color-flipper">Color Flipper</div><div id="simple-hex"><button id="simple">Simple</button> <button id="hex">Hex</button></div></div>
-      <div id="color-change"><div id="bg-color">Background Color : </div><div><button onclick="onClickMe()" id="click-me">Click Me</button></div></div>
+      <div id="header">
+         <div id="color-flipper">Color Flipper</div>
+         <div id="simple-hex">
+         <button id="simple" onclick="onClickSimple()">Simple</button> 
+         <button id="hex" onclick="onClickHex()">Hex</button>
+         </div>
+      </div>
+      <div id="color-change">
+         <div id="bg-color"><h3>Background Color : <span id="color-label">Red</span></h3></div>
+         <div><button onclick="onClickMe()" id="click-me">Click Me</button></div>
+      </div>
    </body> 
 </html>
