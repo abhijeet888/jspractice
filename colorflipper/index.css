@@ -1,0 +1,30 @@
+#index{
+    
+}
+
+#color-flipper{
+    display: inline-block;
+    margin-left: 10%;
+}
+
+#simple-hex{
+    display: inline-block;
+    margin-left: 60%;
+}
+
+#color-change{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 10px;
+}
+
+#click-me{
+    margin-left: 20%;
+}
+
+#bg-color{
+    border: 10px solid black;
+    background-color: red;
+}
