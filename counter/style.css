@@ -1,0 +1,30 @@
+#main{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background-color: aqua;
+}
+
+#count{
+    margin-left:50%;
+}
+
+#counter{
+    margin-left: 40%;
+}
+
+#buttons{
+    margin-top: 10%;
+}
+
+.btn{
+    margin-left:40px;
+    border:1px solid black;
+    border-radius: 5px;
+    color:blue;
+}
+
+#count{
+    font-size: large;
+}
