@@ -1,5 +1,5 @@
 //The forEach() method calls a function (a callback function) once for each array element.
-const population = [2,4,2,9,49,2828,3849,22,];
+const population = [2,4,2,9,49,2828,3849,22,4];
 let t = 0;
 
 console.log(population.forEach((v,i,a)=>{ t += 1}));
@@ -27,3 +27,10 @@ console.log("Find",findPopulation)//ans - 4
 //findIndex - The findIndex() method returns the index of the first array element that passes a test function.
 const findIndex = population.findIndex((v,i,a)=>{return v>2});
 console.log("FindIndex",findIndex);
+
+//reduce  - Trying to understand ;)
+const a = population.reduce(getSum)
+function getSum(total, num){
+return total + num;
+}
+console.log('Reduce', a);

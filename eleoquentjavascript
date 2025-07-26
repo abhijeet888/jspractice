@@ -1,0 +1,93 @@
+// function triangleLoop(n){
+//     let hash = "#"
+//     console.log(hash)
+//     for(let i=1;i< n ;i++){
+//        hash = hash + "#"
+//        console.log(hash)
+//     }
+// }
+// triangleLoop(7)
+
+// function fizzBuzz(n){
+//    if(n%3 === 0 && n%5 !== 0){
+//      console.log("Fizz")
+//    }else if(n%5 === 0 && n%3 !== 0){
+//     console.log("Buzz")
+//    }else if(n%3 ===0 && n%5===0){
+//     console.log("Fizz Buzz")
+//    }
+// }
+
+// fizzBuzz(15)
+
+function chessBoard(w,h,wPos,bPos){
+    let patternOne = ""
+    let patternTwo = ""
+    let str = ""
+    if(w === 0 || h === 0 ) {
+        console.log("Height or Width cannot be zero")
+        return
+    }
+    for(let i =1;i<=w;i++){
+      if(i%2 !== 0){
+        patternOne += "_" 
+        patternTwo += "#"
+      }else{
+        patternOne += "#" 
+        patternTwo += "_"
+      }
+    }
+    for(let i =1;i<=h;i++){
+        if((i!== 1 && i!== 2 && i!== 7 && i!== 8 )){
+        if(i%2 !== 0 ){
+            str += "\n"+patternOne
+          }else{
+            str += "\n"+patternTwo
+          }
+        }else{
+
+        }
+    }
+    console.log(str.trim())
+}
+
+chessBoard(8,8)
+
+function placePieces(){
+    let blockNames = []
+    let whitePiecesPositions = {
+        "pawns":{"p1":"a1","p2":"b1","p3":"c1","p4":"d1","p5":"e1","p6":"f1","p7":"g1","p8":"h1",move(){}},
+        "bishops":{"b1":"f1","b2":"c1"},
+        "knights":{"k1":"g1","k2":"b1"},
+        "rooks":{"r1":"h1","r2":"a1"},
+        "queen":{"q1":"d1"},
+        "king":{"k1":"e1"}
+    }
+    console.log(whitePiecesPositions)
+    let blackPiecesPositions = {
+        "pawns":{"p1":"a7","p2":"b7","p3":"c7","p4":"d7","p5":"e7","p6":"f7","p7":"g7","p8":"h7",move(){}},
+        "bishops":{"b1":"f8","b2":"c8"},
+        "knights":{"k1":"g8","k2":"b8"},
+        "rooks":{"r1":"h8","r2":"a8"},
+        "queen":{"q1":"d8"},
+        "king":{"k1":"e8"}
+    }
+    console.log(blackPiecesPositions)
+}
+placePieces()
+
+
+function updatePositions(wPos, bPos){
+
+}
+
+
+function power(base, exponent=3){
+   let result = 1
+   for(let count=0;count<exponent;count++){
+       result *= base
+   } 
+   console.log(result)
+}
+
+power(2)
