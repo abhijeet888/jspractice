@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Number Path Game</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f0f0f0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(6, 60px);
+      grid-template-rows: repeat(6, 60px);
+      gap: 2px;
+    }
+    .cell {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: white;
+      border: 1px solid #ccc;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      user-select: none;
+    }
+    .wall-top { border-top: 4px solid black; }
+    .wall-right { border-right: 4px solid black; }
+    .wall-bottom { border-bottom: 4px solid black; }
+    .wall-left { border-left: 4px solid black; }
+    .selected {
+      background: orange;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid" id="grid"></div>
+
+  <script>
+    const gridData = [
+      [null,  9,    null,  null,  3,    null],
+      [10,   null, null,  null,  null, null],
+      [null,  1,     2,  'wall-h', null, null],
+      ['wall-v', 8,     4,  null,  null, 5],
+      [7,   null, null,  null,  null, 6],
+      [null, null, null, null, null, null],
+    ];
+
+    const walls = [
+      { row: 2, col: 3, type: 'wall-right' },
+      { row: 3, col: 0, type: 'wall-top' },
+      { row: 2, col: 0, type: 'wall-bottom' },
+      { row: 3, col: 2, type: 'wall-right' },
+      { row: 3, col: 1, type: 'wall-bottom' },
+    ];
+
+    const grid = document.getElementById('grid');
+
+    for (let row = 0; row < 6; row++) {
+      for (let col = 0; col < 6; col++) {
+        const div = document.createElement('div');
+        div.className = 'cell';
+        const value = gridData[row]?.[col];
+        if (typeof value === 'number') {
+          div.textContent = value;
+          div.dataset.number = value;
+        }
+        const wall = walls.find(w => w.row === row && w.col === col);
+        if (wall) div.classList.add(wall.type);
+        div.dataset.row = row;
+        div.dataset.col = col;
+        grid.appendChild(div);
+      }
+    }
+
+    let current = 1;
+    const total = 10;
+
+    grid.addEventListener('click', (e) => {
+      const cell = e.target;
+      const num = parseInt(cell.dataset.number);
+      if (num === current) {
+        cell.classList.add('selected');
+        current++;
+        if (current > total) {
+          alert('You completed the path!');
+        }
+      }
+    });
+  </script>
+</body>
+</html>
