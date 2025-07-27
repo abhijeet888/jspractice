@@ -26,8 +26,9 @@
         if(!this.array[0]){ return console.log("Underflow of stack");}
         for(let i=this.size-1;i>=0;i--){
            if(this.array[i]){
+              const poppedElement = this.array[i];
               this.array[i] = undefined;
-              return;
+              return poppedElement;
            }
         };
        };
@@ -44,10 +45,10 @@
        isEmpty(){
         for(let i=this.size-1;i>=0;i--){
             if(this.array[i]){
-               return console.log("Is Stack Empty:",false);
+               return false;
             }
          };
-         return console.log("Is Stack Empty:",true);
+         return true;
        };
 
        isFull(){
@@ -79,4 +80,34 @@
   stack.print();
   stack.pop();
   stack.isEmpty();
-})()
+  const str = "{[}]";
+  //->push({)->push([)->pop() -incorrect string
+  const strone = ""
+  //->push([)->push({)->push(()->pop()->pop()->pop()->push([)->pop() - string is correct
+  const dict = {
+        "{": "}",
+        "[": "]",
+        "(": ")"
+  };
+  const arraOfClosedBrackets = ["}","]",")"];
+  let arr = strone.split("");
+  const stackStr = new Stack(arr.length);
+  const isStringValid = () => {
+   if(arraOfClosedBrackets.includes(arr[0])){ return console.log("string is incorrect")}
+  for(const key in arr){
+     if(arraOfClosedBrackets.includes(arr[key])){
+        if(dict[stackStr.pop()] !== arr[key]){
+           return console.log("string is incorrect");
+        };
+     }else{
+       stackStr.push(arr[key]);
+     }
+  };
+  if(!stackStr.isEmpty()){
+    return console.log("string is incorrect");
+  }
+  return console.log("String is Valid");
+};
+isStringValid();
+
+})();
